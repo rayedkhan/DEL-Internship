@@ -17,7 +17,7 @@ autoencoder = tf.keras.models.load_model('autoencoder_model.h5')
 data = pd.read_csv('new_email_logs.csv')
 
 features = data[['UUID', 'recipient', 'sender', 'subject', 'time_processed']]
-uuids = features['UUID']
+uuids = features['UUID'] # UUIDs stored for retrieval later
 features = features.drop(columns=['UUID'])
 
 features['recipient'] = label_encoder.fit_transform(features['recipient'])
